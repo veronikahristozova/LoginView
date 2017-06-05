@@ -21,13 +21,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TD3-W8-B66" customClass="LoginView" customModule="LoginView" customModuleProvider="target">
-                                <rect key="frame" x="31" y="38" width="328" height="600"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TD3-W8-B66" customClass="LoginView" customModule="LoginView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="TD3-W8-B66" secondAttribute="trailing" id="2Iz-SG-bOU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TD3-W8-B66" secondAttribute="bottom" id="Nwk-EA-3EG"/>
+                            <constraint firstItem="TD3-W8-B66" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iNl-Yt-jRv"/>
+                            <constraint firstItem="TD3-W8-B66" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="jun-q1-xrp"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="loginView" destination="TD3-W8-B66" id="0uJ-nb-ODM"/>

@@ -38,7 +38,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="fej-US-hhR" userLabel="Email Stack View">
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="fej-US-hhR" userLabel="Email Stack View">
                     <rect key="frame" x="9.5" y="215.5" width="356" height="36"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="ntU-Sj-Pkk">
@@ -50,14 +50,14 @@
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                            <textInputTraits key="textInputTraits" keyboardAppearance="light" enablesReturnKeyAutomatically="YES"/>
+                            <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
                         </textField>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="Jeh-t3-7Pw"/>
                     </constraints>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="EU6-ih-uTY" userLabel="Password Stack View">
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="EU6-ih-uTY" userLabel="Password Stack View">
                     <rect key="frame" x="9.5" y="261.5" width="356" height="36"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keypass" translatesAutoresizingMaskIntoConstraints="NO" id="FPk-c7-Jxv">
@@ -68,14 +68,14 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                            <textInputTraits key="textInputTraits" keyboardAppearance="light" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                            <textInputTraits key="textInputTraits" keyboardAppearance="light" secureTextEntry="YES"/>
                         </textField>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="hxp-Kd-COm"/>
                     </constraints>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nzk-SI-PG4" userLabel="RePass Stack View">
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nzk-SI-PG4" userLabel="RePass Stack View">
                     <rect key="frame" x="9.5" y="307.5" width="356" height="36"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keypass" translatesAutoresizingMaskIntoConstraints="NO" id="kr4-s4-y87">
@@ -86,14 +86,14 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                            <textInputTraits key="textInputTraits" keyboardAppearance="light" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                            <textInputTraits key="textInputTraits" keyboardAppearance="light" secureTextEntry="YES"/>
                         </textField>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="4bA-Hk-LEq"/>
                     </constraints>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zn-yG-G1a" userLabel="Sing In Button instead">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zn-yG-G1a" userLabel="Sing In Button instead">
                     <rect key="frame" x="65" y="425.5" width="245" height="39"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="39" id="SGd-vL-fxF"/>
@@ -106,7 +106,7 @@
                         <action selector="didTapSignInInsteadButton:" destination="-1" eventType="touchUpInside" id="ug9-bo-BQZ"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzB-me-HlF">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzB-me-HlF">
                     <rect key="frame" x="29" y="342" width="320.5" height="44"/>
                     <color key="backgroundColor" red="0.92106491329999995" green="0.368624866" blue="0.1904986501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -120,7 +120,7 @@
                         <action selector="didTapSignInButton:" destination="-1" eventType="touchUpInside" id="hhn-Xf-jVu"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGf-0h-ibi">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGf-0h-ibi">
                     <rect key="frame" x="110" y="449" width="155" height="39"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="39" id="ckm-SZ-LhA"/>
@@ -187,7 +187,7 @@
                         </button>
                     </subviews>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Uu-zQ-Alq">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Uu-zQ-Alq">
                     <rect key="frame" x="27" y="388" width="320.5" height="44"/>
                     <color key="backgroundColor" red="0.92106491329999995" green="0.368624866" blue="0.1904986501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>

@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        loginView.mainColor = .lightGray
-        loginView.secondaryColor = .black
+        loginView.mainColor = .orange
+        loginView.secondaryColor = .white
         loginView.delegate = self
     }
 

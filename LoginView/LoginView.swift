@@ -179,6 +179,10 @@ class LoginView: UIView {
         addBottomBorderToTextField(rePasswordTextField, 0.5, UIColor.lightGray.withAlphaComponent(0.6).cgColor)
         
         hideViews(views: [emailStackView, passwordStackView, rePasswordStackView, registerButton, forgotPasswordButton, singInInsteadButton, signInButton], hidden: true)
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        rePasswordTextField.delegate = self
     }
     
     override init(frame: CGRect) {
@@ -198,5 +202,11 @@ extension UIView {
         view.frame = bounds
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         addSubview(view)
+    }
+}
+extension LoginView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.endEditing(true)
+        return true
     }
 }
