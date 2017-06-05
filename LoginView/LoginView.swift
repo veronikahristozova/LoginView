@@ -48,6 +48,8 @@ class LoginView: UIView {
     @IBOutlet weak var passwordStackView: UIStackView!
     @IBOutlet weak var rePasswordStackView: UIStackView!
     
+    @IBOutlet weak var backButton: UIButton!
+    
     //MARK: - Variables
     public var mainColor: UIColor = .orange { didSet { setMainColor() } }
     public var secondaryColor: UIColor = .white { didSet { setSecondaryColor() } }
@@ -68,6 +70,10 @@ class LoginView: UIView {
         delegate?.didTapButton(.facebook)
     }
     
+    @IBAction func didTapBackButton(_ sender: UIButton) {
+        hideViews(views: [initalSinginUpStackView], hidden: false)
+        hideViews(views: [signInButton, forgotPasswordButton, emailStackView, passwordStackView, rePasswordStackView, registerButton, backButton, singInInsteadButton], hidden: true)
+    }
     @IBAction func didTapSignInInsteadButton(_ sender: UIButton) {
         hideViews(views: [rePasswordStackView, registerButton, singInInsteadButton], hidden: true)
         hideViews(views: [signInButton, forgotPasswordButton], hidden: false)
@@ -75,27 +81,26 @@ class LoginView: UIView {
 
     @IBAction func didTapSignUpWithEmailButton(_ sender: UIButton) {
         initalSinginUpStackView.isHidden = true
-        hideViews(views: [emailStackView, passwordStackView, rePasswordStackView, registerButton, singInInsteadButton], hidden: false)
+        hideViews(views: [emailStackView, passwordStackView, rePasswordStackView, registerButton, singInInsteadButton, backButton], hidden: false)
         
     }
     @IBAction func didTapInitialSignInButton(_ sender: UIButton) {
         initalSinginUpStackView.isHidden = true
-        hideViews(views: [emailStackView, passwordStackView, signInButton, forgotPasswordButton], hidden: false)
+        hideViews(views: [emailStackView, passwordStackView, signInButton, forgotPasswordButton, backButton], hidden: false)
     }
     
     //MARK: - Setup UI
     private func setMainColor() {
         setTintColor(views: [userEmailImageView, keypassImageView, reKeypassImageView], color: mainColor)
-        setTitleColor(views: [initialSinginButton, initialSingupWithEmailButton, forgotPasswordButton, singInInsteadButton], color: mainColor)
+        setTitleColor(views: [initialSinginButton, initialSingupWithEmailButton, forgotPasswordButton, singInInsteadButton, backButton], color: mainColor)
         setBackgroundColor(views: [facebookView, facebookLogoImageView, signInButton, registerButton], color: mainColor)
         facebookLogoImageView.tintColor = mainColor.withAlphaComponent(0.5)
     }
     
     private func setSecondaryColor() {
         setBackgroundColor(views: [initialSinginButton, initialSingupWithEmailButton, facebookLogoImageView], color: secondaryColor)
-        loginWithFacebookLabel.textColor = secondaryColor
         setTitleColor(views: [signInButton, registerButton], color: secondaryColor)
-        
+        loginWithFacebookLabel.textColor = secondaryColor
     }
     
     //Helper UI functions
@@ -195,6 +200,7 @@ class LoginView: UIView {
         loadFromNib()
     }
 }
+//MARK: - UIView extension
 extension UIView {
     func loadFromNib(_ nibName: String = String(describing: type(of: self))) {
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: Bundle(for: type(of: self)))
@@ -204,6 +210,7 @@ extension UIView {
         addSubview(view)
     }
 }
+//MARK: - UITextField Delegate
 extension LoginView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.endEditing(true)

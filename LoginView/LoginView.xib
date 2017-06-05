@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView" customModule="LoginView" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="ydM-xO-aqA" id="lP1-EY-Bco"/>
                 <outlet property="emailStackView" destination="fej-US-hhR" id="XGe-LC-RSi"/>
                 <outlet property="emailTextField" destination="sn2-G6-aG2" id="hKB-GS-SRm"/>
                 <outlet property="facebookLogoImageView" destination="oFJ-6K-kvI" id="nFU-xZ-hy6"/>
@@ -94,11 +95,11 @@
                     </constraints>
                 </stackView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zn-yG-G1a" userLabel="Sing In Button instead">
-                    <rect key="frame" x="65" y="425.5" width="245" height="39"/>
+                    <rect key="frame" x="70" y="425.5" width="235" height="39"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="39" id="SGd-vL-fxF"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="Already have an account? Sign in instead.">
                         <color key="titleColor" red="0.92106491329999995" green="0.368624866" blue="0.1904986501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -112,7 +113,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="XWd-dz-WNE"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Sign in">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -125,7 +126,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="39" id="ckm-SZ-LhA"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="Forgot your password?">
                         <color key="titleColor" red="0.92106491329999995" green="0.368624866" blue="0.1904986501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -151,7 +152,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="168" id="Swk-sR-P6x"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -167,7 +168,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-AF-wEl">
                             <rect key="frame" x="0.0" y="47" width="337.5" height="33"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="Sign up with email">
                                 <color key="titleColor" red="0.92106491329999995" green="0.368624866" blue="0.1904986501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -177,7 +178,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCf-11-M3f">
                             <rect key="frame" x="0.0" y="87" width="337.5" height="33"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="Sign in">
                                 <color key="titleColor" red="0.92106491329999995" green="0.368624866" blue="0.1904986501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -193,12 +194,21 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="1jM-qm-gba"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Register">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="didTapRegisterButton:" destination="-1" eventType="touchUpInside" id="vOM-zy-zIf"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydM-xO-aqA">
+                    <rect key="frame" x="145" y="472" width="84" height="31"/>
+                    <state key="normal" title="← Back">
+                        <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapBackButton:" destination="-1" eventType="touchUpInside" id="CtF-IA-HFv"/>
                     </connections>
                 </button>
             </subviews>
@@ -208,10 +218,12 @@
                 <constraint firstItem="EU6-ih-uTY" firstAttribute="width" secondItem="fej-US-hhR" secondAttribute="width" id="6wS-jJ-qMQ"/>
                 <constraint firstItem="XzB-me-HlF" firstAttribute="width" secondItem="0Uu-zQ-Alq" secondAttribute="width" id="CIU-Ds-8Cu"/>
                 <constraint firstItem="qGf-0h-ibi" firstAttribute="centerX" secondItem="XzB-me-HlF" secondAttribute="centerX" id="DT2-NN-ZLo"/>
+                <constraint firstItem="ydM-xO-aqA" firstAttribute="top" secondItem="6zn-yG-G1a" secondAttribute="bottom" constant="6" id="FRU-17-GcG"/>
                 <constraint firstItem="Nzk-SI-PG4" firstAttribute="top" secondItem="EU6-ih-uTY" secondAttribute="bottom" constant="10" id="Hr9-Q7-IKv"/>
                 <constraint firstItem="uDE-kx-Ofd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="NZ2-ZS-eVb"/>
                 <constraint firstItem="Nzk-SI-PG4" firstAttribute="width" secondItem="EU6-ih-uTY" secondAttribute="width" id="Znt-uG-mQQ"/>
                 <constraint firstItem="EU6-ih-uTY" firstAttribute="top" secondItem="fej-US-hhR" secondAttribute="bottom" constant="10" id="a5O-vz-4Xv"/>
+                <constraint firstItem="ydM-xO-aqA" firstAttribute="centerX" secondItem="6zn-yG-G1a" secondAttribute="centerX" id="atD-8m-fUp"/>
                 <constraint firstItem="6zn-yG-G1a" firstAttribute="top" secondItem="0Uu-zQ-Alq" secondAttribute="bottom" constant="8" id="dNv-hw-Jtf"/>
                 <constraint firstItem="6zn-yG-G1a" firstAttribute="centerX" secondItem="0Uu-zQ-Alq" secondAttribute="centerX" id="eMP-4C-wo7"/>
                 <constraint firstItem="fej-US-hhR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gIz-PZ-D96"/>
@@ -229,7 +241,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-43" y="-42"/>
+            <point key="canvasLocation" x="-43.5" y="-42.5"/>
         </view>
     </objects>
     <resources>

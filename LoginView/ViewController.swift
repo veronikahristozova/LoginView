@@ -19,20 +19,15 @@ class ViewController: UIViewController {
         loginView.secondaryColor = .white
         loginView.delegate = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
 
 extension ViewController: LoginViewDelegate {
     func didTapButton(_ type: LoginViewButtonType) {
         switch type {
-        case .facebook: print("")
-        case .forgotPassword: print("")
-        case .register: print("")
-        case  .signIn: print("")
+        case .facebook: print("Perform segue maybe?")
+        case .forgotPassword: print("Open web view?")
+        case .register: print("Perform segue?")
+        case .signIn: print("Perform segue?")
         }
     }
 }
