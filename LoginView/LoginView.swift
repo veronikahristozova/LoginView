@@ -52,80 +52,87 @@ class LoginView: UIView {
     public var mainColor: UIColor = .orange { didSet { setMainColor() } }
     public var secondaryColor: UIColor = .white { didSet { setSecondaryColor() } }
     weak var delegate: LoginViewDelegate?
+    
     //MARK: - IBActions
     @IBAction func didTapRegisterButton(_ sender: UIButton) {
         delegate?.didTapButton(.register)
     }
-    
-    @IBAction func didTapSignInInsteadButton(_ sender: UIButton) {
-        signInButton.isHidden = true
-        forgotPasswordButton.isHidden = true
-        rePasswordStackView.isHidden = true
-        registerButton.isHidden = true
-        singInInsteadButton.isHidden = true
-        
-        signInButton.isHidden = false
-        forgotPasswordButton.isHidden = false
-        
-    }
-    
     @IBAction func didTapSignInButton(_ sender: UIButton) {
         delegate?.didTapButton(.signIn)
     }
     @IBAction func didTapForgotPasswordButton(_ sender: UIButton) {
         delegate?.didTapButton(.forgotPassword)
     }
-    @IBAction func didTapSignUpWithEmailButton(_ sender: UIButton) {
-        initalSinginUpStackView.isHidden = true
-        emailStackView.isHidden = false
-        passwordStackView.isHidden = false
-        rePasswordStackView.isHidden = false
-        registerButton.isHidden = false
-        singInInsteadButton.isHidden = false
-        
-    }
-    @IBAction func didTapInitialSignInButton(_ sender: UIButton) {
-        initalSinginUpStackView.isHidden = true
-        emailStackView.isHidden = false
-        passwordStackView.isHidden = false
-        signInButton.isHidden = false
-        forgotPasswordButton.isHidden = false
-    }
-    
     // Facebook View tapped
     @objc fileprivate func didTapFacebookView(_ sender: UITapGestureRecognizer) {
         delegate?.didTapButton(.facebook)
     }
     
+    @IBAction func didTapSignInInsteadButton(_ sender: UIButton) {
+        hideViews(views: [rePasswordStackView, registerButton, singInInsteadButton], hidden: true)
+        hideViews(views: [signInButton, forgotPasswordButton], hidden: false)
+    }
+
+    @IBAction func didTapSignUpWithEmailButton(_ sender: UIButton) {
+        initalSinginUpStackView.isHidden = true
+        hideViews(views: [emailStackView, passwordStackView, rePasswordStackView, registerButton, singInInsteadButton], hidden: false)
+        
+    }
+    @IBAction func didTapInitialSignInButton(_ sender: UIButton) {
+        initalSinginUpStackView.isHidden = true
+        hideViews(views: [emailStackView, passwordStackView, signInButton, forgotPasswordButton], hidden: false)
+    }
+    
     //MARK: - Setup UI
     private func setMainColor() {
-        userEmailImageView.tintColor = mainColor
-        keypassImageView.tintColor = mainColor
-        reKeypassImageView.tintColor = mainColor
-        
-        initialSinginButton.setTitleColor(mainColor, for: .normal)
-        initialSingupWithEmailButton.setTitleColor(mainColor, for: .normal)
-        forgotPasswordButton.setTitleColor(mainColor, for: .normal)
-        singInInsteadButton.setTitleColor(mainColor, for: .normal)
-        
-        facebookView.backgroundColor = mainColor
-        facebookLogoImageView.backgroundColor = secondaryColor
-        signInButton.backgroundColor = mainColor
-        registerButton.backgroundColor = mainColor
-        
+        setTintColor(views: [userEmailImageView, keypassImageView, reKeypassImageView], color: mainColor)
+        setTitleColor(views: [initialSinginButton, initialSingupWithEmailButton, forgotPasswordButton, singInInsteadButton], color: mainColor)
+        setBackgroundColor(views: [facebookView, facebookLogoImageView, signInButton, registerButton], color: mainColor)
         facebookLogoImageView.tintColor = mainColor.withAlphaComponent(0.5)
-        
     }
     
     private func setSecondaryColor() {
-        initialSinginButton.backgroundColor = secondaryColor
-        initialSingupWithEmailButton.backgroundColor = secondaryColor
-        
+        setBackgroundColor(views: [initialSinginButton, initialSingupWithEmailButton, facebookLogoImageView], color: secondaryColor)
         loginWithFacebookLabel.textColor = secondaryColor
+        setTitleColor(views: [signInButton, registerButton], color: secondaryColor)
         
-        signInButton.setTitleColor(secondaryColor, for: .normal)
-        registerButton.setTitleColor(secondaryColor, for: .normal)
-        facebookLogoImageView.backgroundColor = secondaryColor
+    }
+    
+    //Helper UI functions
+    private func setBackgroundColor(views: [UIView], color: UIColor) {
+        views.forEach { view in
+            view.backgroundColor = color
+        }
+    }
+    
+    private func setTintColor(views: [UIView], color: UIColor) {
+        views.forEach { view in
+            view.tintColor = color
+        }
+    }
+    private func setTitleColor(views: [UIButton], color: UIColor) {
+        views.forEach { view in
+            view.setTitleColor(color, for: .normal)
+        }
+    }
+    
+    private func hideViews(views: [UIView], hidden: Bool) {
+        //Animations
+        views.forEach { view in
+            if hidden {
+                UIView.animate(withDuration: 0.8, animations: {
+                    view.alpha = 0
+                }) { (finished) in
+                    view.isHidden = hidden
+                }
+            } else {
+                view.alpha = 0
+                view.isHidden = hidden
+                UIView.animate(withDuration: 0.8) {
+                    view.alpha = 1
+                }
+            }
+        }
     }
 
     /// Round up the corners of views
@@ -171,13 +178,7 @@ class LoginView: UIView {
         addBottomBorderToTextField(passwordTextField, 0.5, UIColor.lightGray.withAlphaComponent(0.6).cgColor)
         addBottomBorderToTextField(rePasswordTextField, 0.5, UIColor.lightGray.withAlphaComponent(0.6).cgColor)
         
-        hideViews(views: [emailStackView, passwordStackView, rePasswordStackView, registerButton, forgotPasswordButton, singInInsteadButton, signInButton])
-    }
-    
-    private func hideViews(views: [UIView]) {
-        views.forEach { view in
-            view.isHidden = true
-        }
+        hideViews(views: [emailStackView, passwordStackView, rePasswordStackView, registerButton, forgotPasswordButton, singInInsteadButton, signInButton], hidden: true)
     }
     
     override init(frame: CGRect) {
