@@ -14,6 +14,8 @@
 		962F1BEE1EE18C5A0035C61D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962F1BEC1EE18C5A0035C61D /* LaunchScreen.storyboard */; };
 		962F1BF91EE18C5B0035C61D /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F1BF81EE18C5B0035C61D /* LoginViewTests.swift */; };
 		962F1C041EE18C5B0035C61D /* LoginViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F1C031EE18C5B0035C61D /* LoginViewUITests.swift */; };
+		962F1C131EE18C990035C61D /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 962F1C121EE18C990035C61D /* LoginView.xib */; };
+		962F1C151EE18CC90035C61D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F1C141EE18CC90035C61D /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		962F1BFF1EE18C5B0035C61D /* LoginViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		962F1C031EE18C5B0035C61D /* LoginViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewUITests.swift; sourceTree = "<group>"; };
 		962F1C051EE18C5B0035C61D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		962F1C121EE18C990035C61D /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		962F1C141EE18CC90035C61D /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 				962F1BEA1EE18C5A0035C61D /* Assets.xcassets */,
 				962F1BEC1EE18C5A0035C61D /* LaunchScreen.storyboard */,
 				962F1BEF1EE18C5A0035C61D /* Info.plist */,
+				962F1C111EE18C700035C61D /* LoginView */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -123,6 +128,15 @@
 				962F1C051EE18C5B0035C61D /* Info.plist */,
 			);
 			path = LoginViewUITests;
+			sourceTree = "<group>";
+		};
+		962F1C111EE18C700035C61D /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				962F1C141EE18CC90035C61D /* LoginView.swift */,
+				962F1C121EE18C990035C61D /* LoginView.xib */,
+			);
+			name = LoginView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +251,7 @@
 			files = (
 				962F1BEE1EE18C5A0035C61D /* LaunchScreen.storyboard in Resources */,
 				962F1BEB1EE18C5A0035C61D /* Assets.xcassets in Resources */,
+				962F1C131EE18C990035C61D /* LoginView.xib in Resources */,
 				962F1BE91EE18C5A0035C61D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962F1C151EE18CC90035C61D /* LoginView.swift in Sources */,
 				962F1BE61EE18C5A0035C61D /* ViewController.swift in Sources */,
 				962F1BE41EE18C5A0035C61D /* AppDelegate.swift in Sources */,
 			);
