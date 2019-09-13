@@ -22,33 +22,33 @@ protocol LoginViewDelegate: class {
 class LoginView: UIView {
     
     //MARK: - IBOutlets
-    @IBOutlet weak var userEmailImageView: UIImageView!
-    @IBOutlet weak var keypassImageView: UIImageView!
-    @IBOutlet weak var reKeypassImageView: UIImageView!
+    @IBOutlet var userEmailImageView: UIImageView!
+    @IBOutlet var keypassImageView: UIImageView!
+    @IBOutlet var reKeypassImageView: UIImageView!
  
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var rePasswordTextField: UITextField!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var rePasswordTextField: UITextField!
     
-    @IBOutlet weak var initialSingupWithEmailButton: UIButton!
-    @IBOutlet weak var initialSinginButton: UIButton!
-    @IBOutlet weak var facebookView: UIView!
-    @IBOutlet weak var facebookLogoImageView: UIImageView!
-    @IBOutlet weak var loginWithFacebookLabel: UILabel!
+    @IBOutlet var initialSingupWithEmailButton: UIButton!
+    @IBOutlet var initialSinginButton: UIButton!
+    @IBOutlet var facebookView: UIView!
+    @IBOutlet var facebookLogoImageView: UIImageView!
+    @IBOutlet var loginWithFacebookLabel: UILabel!
     
-    @IBOutlet weak var initalSinginUpStackView: UIStackView!
+    @IBOutlet var initalSinginUpStackView: UIStackView!
     
-    @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var singInInsteadButton: UIButton!
+    @IBOutlet var registerButton: UIButton!
+    @IBOutlet var singInInsteadButton: UIButton!
     
-    @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet var signInButton: UIButton!
+    @IBOutlet var forgotPasswordButton: UIButton!
     
-    @IBOutlet weak var emailStackView: UIStackView!
-    @IBOutlet weak var passwordStackView: UIStackView!
-    @IBOutlet weak var rePasswordStackView: UIStackView!
+    @IBOutlet var emailStackView: UIStackView!
+    @IBOutlet var passwordStackView: UIStackView!
+    @IBOutlet var rePasswordStackView: UIStackView!
     
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet var backButton: UIButton!
     
     //MARK: - Variables
     public var mainColor: UIColor = .orange { didSet { setMainColor() } }
@@ -56,35 +56,35 @@ class LoginView: UIView {
     weak var delegate: LoginViewDelegate?
     
     //MARK: - IBActions
-    @IBAction func didTapRegisterButton(_ sender: UIButton) {
+    @IBAction private func didTapRegisterButton(_ sender: UIButton) {
         delegate?.didTapButton(.register)
     }
-    @IBAction func didTapSignInButton(_ sender: UIButton) {
+    @IBAction private func didTapSignInButton(_ sender: UIButton) {
         delegate?.didTapButton(.signIn)
     }
-    @IBAction func didTapForgotPasswordButton(_ sender: UIButton) {
+    @IBAction private func didTapForgotPasswordButton(_ sender: UIButton) {
         delegate?.didTapButton(.forgotPassword)
     }
     // Facebook View tapped
-    @objc fileprivate func didTapFacebookView(_ sender: UITapGestureRecognizer) {
+    @objc private func didTapFacebookView(_ sender: UITapGestureRecognizer) {
         delegate?.didTapButton(.facebook)
     }
     
-    @IBAction func didTapBackButton(_ sender: UIButton) {
+    @IBAction private func didTapBackButton(_ sender: UIButton) {
         hideViews(views: [initalSinginUpStackView], hidden: false)
         hideViews(views: [signInButton, forgotPasswordButton, emailStackView, passwordStackView, rePasswordStackView, registerButton, backButton, singInInsteadButton], hidden: true)
     }
-    @IBAction func didTapSignInInsteadButton(_ sender: UIButton) {
+    @IBAction private func didTapSignInInsteadButton(_ sender: UIButton) {
         hideViews(views: [rePasswordStackView, registerButton, singInInsteadButton], hidden: true)
         hideViews(views: [signInButton, forgotPasswordButton], hidden: false)
     }
 
-    @IBAction func didTapSignUpWithEmailButton(_ sender: UIButton) {
+    @IBAction private func didTapSignUpWithEmailButton(_ sender: UIButton) {
         initalSinginUpStackView.isHidden = true
         hideViews(views: [emailStackView, passwordStackView, rePasswordStackView, registerButton, singInInsteadButton, backButton], hidden: false)
         
     }
-    @IBAction func didTapInitialSignInButton(_ sender: UIButton) {
+    @IBAction private func didTapInitialSignInButton(_ sender: UIButton) {
         initalSinginUpStackView.isHidden = true
         hideViews(views: [emailStackView, passwordStackView, signInButton, forgotPasswordButton, backButton], hidden: false)
     }
@@ -145,7 +145,7 @@ class LoginView: UIView {
     /// - Parameters:
     ///   - views: to round the corners of
     ///   - cornerRadius: to be used
-    fileprivate func addCornerRadiusToView(_ views: [UIView], _ cornerRadius: CGFloat) {
+    private func addCornerRadiusToView(_ views: [UIView], _ cornerRadius: CGFloat) {
         for currentView in views {
             currentView.layer.cornerRadius = cornerRadius
             currentView.layer.masksToBounds = true
@@ -157,7 +157,7 @@ class LoginView: UIView {
     ///   - textField: to add bottom border to
     ///   - borderWidth: the width of the border in CGFloat
     ///   - borderColor: of the border
-    fileprivate func addBottomBorderToTextField(_ textField: UITextField,_  borderWidth: CGFloat,_  borderColor: CGColor) {
+    private func addBottomBorderToTextField(_ textField: UITextField,_  borderWidth: CGFloat,_  borderColor: CGColor) {
         let border = CALayer()
         border.borderColor = borderColor
         border.frame = CGRect(x: 0, y: textField.frame.size.height - borderWidth, width:  textField.frame.size.width, height: textField.frame.size.height)
@@ -206,7 +206,7 @@ extension UIView {
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: Bundle(for: type(of: self)))
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
-        view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         addSubview(view)
     }
 }

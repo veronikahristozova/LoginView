@@ -10,11 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var loginView: LoginView!
+    // TODO: Extract the demo use elsewhere
+    @IBOutlet private var loginView: LoginView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         loginView.mainColor = .orange
         loginView.secondaryColor = .white
         loginView.delegate = self
